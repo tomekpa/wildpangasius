@@ -1,0 +1,35 @@
+[user]
+    name = tomekpa
+[color]
+    ui = true
+[gui]
+    encoding = utf-8
+[push]
+    default = tracking
+[core]
+    autocrlf = true
+[pull]
+    rebase = true
+[alias]
+    ali = "!git config --list" | grep alias
+
+    all = commit -a --amend --no-edit
+    temp = commit -am \"Forced Commit. Work Ongoing\"
+
+    b = branch -vv
+    c = commit
+    ca = commit --amend --no-edit
+
+    d = diff --color-words
+    d1 = diff --color-words HEAD^1
+    df = diff --name-only --color-words
+    df1 = diff --name-only --color-words HEAD^1
+    fc = commit -a
+
+    go = checkout
+    m = checkout master
+    p = checkout -
+    st = status
+    ls = "!git --no-pager log --pretty=tformat:\"%Cred %h %Creset[%ad] %C(yellow)%<(14,trunc)%cn%Creset %s %Creset %Cgreen%d%Creset\" --date=iso -n25"
+    lsf = "!git --no-pager log --name-only --pretty=tformat:\"%Cred %h %Creset[%ad] %C(yellow)%<(14,trunc)%cn%Creset %s %Creset %Cgreen%d%Creset\" --date=iso -n10"
+    ll = log --pretty=tformat:\"%Cred %h %Creset[%ad] %C(yellow)%<(14,trunc)%cn%Creset %s %Creset %Cgreen%d%Creset\" --date=iso
