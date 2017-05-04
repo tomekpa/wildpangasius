@@ -145,15 +145,22 @@ public class Java8 {
 
     @Test
     public void shouldPerformSimpleGrouping() {
-
-        List<Integer> array = {1, 1, 1, 2, 3, 3, 4};
-
-        Map<Integer, List<Integer>>  map = IntStream
-                .of()
+        Map<Integer, Long>  map = IntStream.rangeClosed(1,10)
+                .map(i->i%3)
                 .boxed()
-                .collect(Collectors.groupingBy(i -> array[i], Collectors.counting()));
+                .collect(Collectors.groupingBy( i-> i ,Collectors.counting()));
 
-//        assertThat(reduce).isEqualTo(720); // 6! = 720
+        System.out.println(map);
+    }
+
+    @Test
+    public void shouldPerformSimplePartitionBy() {
+        /*PartitioningBy boolean always */
+        Map<Boolean, List<Integer>>  map = IntStream.rangeClosed(1,10)
+                .boxed()
+                .collect(Collectors.partitioningBy( i -> i*i < 30  ));
+
+        System.out.println(map);
     }
 
     private Integer debugMeshouldPerformSimpleGrouping(Integer i) {
